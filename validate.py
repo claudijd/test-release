@@ -15,19 +15,16 @@ for ipv4example in ipv4examples:
     try:
         ip = ipaddress.ip_network(ipv4example)
     except:
-        print("Error: failed to parse")
-        print(ipv4example)
+        print("Error: failed to parse {0}".format(ipv4example))
         exit(1)
 
     # Validate it's a public IP address
     ip = ipaddress.ip_network(ipv4example)
     if ip.is_global is False:
-        print("Error: not a public IP")
-        print(ipv4example)
+        print("Error: not a public IP {0}".format(ipv4example))
         exit(1)
 
     # Validate it's just one address
     if ip.num_addresses != 1:
-        print("Error: not a single IP")
-        print(ipv4example)
+        print("Error: not a single IP {0}".format(ipv4example))
         exit(1)
